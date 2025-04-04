@@ -16,10 +16,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{SalesURL}}/customers",
+					"raw": "http://localhost:5039/customers",
+					"protocol": "http",
 					"host": [
-						"{{SalesURL}}"
+						"localhost"
 					],
+					"port": "5039",
 					"path": [
 						"customers"
 					]
