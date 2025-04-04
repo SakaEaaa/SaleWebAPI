@@ -16,12 +16,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5039/customers",
-					"protocol": "http",
+					"raw": "https://b2822ff0-c2bf-4cec-83d5-450cd5ea21f1.mock.pstmn.io",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"b2822ff0-c2bf-4cec-83d5-450cd5ea21f1.mock.pstmn.io"
 					],
-					"port": "5039",
+					
 					"path": [
 						"customers"
 					]
