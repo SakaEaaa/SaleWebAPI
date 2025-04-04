@@ -1,10 +1,26 @@
-name: Automated API tests using Postman CLI
+name: Automated API tests using Postman CLI & Unit Tests
 
 on: push
 
 jobs:
+  unit-tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x  # Sikrer, at .NET 8 bliver brugt
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build project
+        run: dotnet build --no-restore --configuration Release
+      - name: Run unit tests
+        run: dotnet test --no-build --configuration Release --logger trx --results-directory TestResults
+
   automated-api-tests:
     runs-on: windows-latest
+    needs: unit-tests  # API-tests kører først, når unit tests er bestået
     steps:
       - uses: actions/checkout@v4
       - name: Install Postman CLI
